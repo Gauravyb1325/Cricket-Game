@@ -1,8 +1,20 @@
 // creating an object to have a scoring of match
-let score = {
+let scoreStr = localStorage.getItem('Score');
+let score = JSON.parse(scoreStr) || {
   win : 0,
   lost : 0,
   tie : 0,
+};
+// let score = {
+//   win : 0,
+//   lost : 0,
+//   tie : 0,
+
+  
+// };
+
+score.displayScore = function(){
+  return `Win : ${score.win}, Lost : ${score.lost}, Tie : ${score.tie}.`;
 };
 
 // Generating Random Computer Choice
@@ -68,9 +80,10 @@ function generateResult(userChoice, computerMsg){
 
 // alerting the page to print the result.
 function printMessage(user, computer, result){
+  localStorage.setItem('Score', JSON.stringify(score));
   alert(`You chosen ${user}. Computer chosen ${computer}.
      
 ${result}
 
-Win : ${score.win}, Lost : ${score.lost}, Tie : ${score.tie}.`);
+${score.displayScore()}`);
 }
