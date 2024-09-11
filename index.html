@@ -8,14 +8,18 @@
 </head>
 <body>
 
+  <img src="images/cricket.webp" alt="" class="back-image">
+
   <h1>Bat Ball Stump Game</h1>
+
+  
   <button class="button" onclick=" 
 
   let computerChoice = getComputerChoice();
   let resultMsg = generateResult('Bat', computerChoice);
   printMessage('Bat', computerChoice, resultMsg);
   
-  ">Bat</button>
+  "><img src="images/bat.png" alt="Bat" class="choice-image"></button>
 
 
   <button class="button" onclick="
@@ -24,7 +28,7 @@
   resultMsg = generateResult('Ball', computerChoice);
   printMessage('Ball', computerChoice, resultMsg);
   
-  ">Ball</button>
+  "><img src="images/ball.png" alt="Ball" class="choice-image"></button>
 
   
   <button class="button" onclick="
@@ -33,7 +37,16 @@
   resultMsg = generateResult('Stump', computerChoice);
   printMessage('Stump', computerChoice, resultMsg);
   
-  ">Stump</button>
+  "><img src="images/stump.png" alt="Stump" class="choice-image"></button>
+
+  <h3 id="user-move"></h3>
+  <h3 id="computer-move"></h3>
+  <h3 id="result"></h3>
+  <h3 id="score"></h3>
+
+  <button onclick="localStorage.clear();
+  resetScore();
+  " class="reset">Reset</button>
 
   <footer>
     <p>@ Gaurav Yadav</p>

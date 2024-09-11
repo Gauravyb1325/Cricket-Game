@@ -1,12 +1,21 @@
-body{
+html,body{
   text-align: center;
-  
-  background-image: url("cricket.webp");
-  height: 500px;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  height : 100%;
+  margin: 0;
+  padding: 0;
+}
 
+.back-image{
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%; /* 100% of the viewport height */
+  width: 100%;  /* 100% of the viewport width */
+  z-index: -1;  /* Keep it behind other elements */
+  background-repeat: no-repeat;
+  background-size: cover; /* Ensure the background covers the entire area */
+  background-position: center; /* Centers the background image */
+  opacity: 0.7;
 }
 
 h1{
@@ -20,6 +29,8 @@ h1:hover{
 }
 
 .button{
+  height: 100px;
+  width: 100px;
   padding : 15px;
   border: 3px solid black;
   border-radius: 10px;
@@ -28,12 +39,30 @@ h1:hover{
   font-weight: 800;
 }
 
+.choice-image{
+  height: 75px;
+}
+
 .button:hover{
   background-color: greenyellow;
 }
 
 .button:active{
   background-color: red;
+}
+
+.reset{
+  padding: 10px 15px;
+  border-radius: 10px;
+  background-color: antiquewhite;
+}
+
+.reset:hover{
+  background-color: blueviolet;
+}
+
+.reset:active{
+  background-color: rgb(185, 4, 149);
 }
 
 footer{

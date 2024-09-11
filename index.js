@@ -1,10 +1,22 @@
 // creating an object to have a scoring of match
 let scoreStr = localStorage.getItem('Score');
-let score = JSON.parse(scoreStr) || {
-  win : 0,
-  lost : 0,
-  tie : 0,
-};
+let score;
+resetScore(scoreStr);
+
+function resetScore(scoreStr){
+  score = scoreStr ? JSON.parse(scoreStr) : {
+    win : 0,
+    lost : 0,
+    tie : 0,
+  };
+
+  score.displayScore = function(){
+    return `Score : Win : ${score.win}, Lost : ${score.lost}, Tie : ${score.tie}.`;
+  };
+
+  printMessage();
+}
+
 // let score = {
 //   win : 0,
 //   lost : 0,
@@ -13,9 +25,7 @@ let score = JSON.parse(scoreStr) || {
   
 // };
 
-score.displayScore = function(){
-  return `Win : ${score.win}, Lost : ${score.lost}, Tie : ${score.tie}.`;
-};
+
 
 // Generating Random Computer Choice
 function getComputerChoice(){
@@ -81,9 +91,15 @@ function generateResult(userChoice, computerMsg){
 // alerting the page to print the result.
 function printMessage(user, computer, result){
   localStorage.setItem('Score', JSON.stringify(score));
-  alert(`You chosen ${user}. Computer chosen ${computer}.
-     
-${result}
 
-${score.displayScore()}`);
+  document.querySelector('#user-move').innerText = user ? `You have chosen ${user}` : '';
+
+  document.querySelector('#computer-move').innerText =user ? `Computer choice is ${computer}` :  '';
+ 
+  document.querySelector('#result').innerText = result ? `${result}` : '';
+
+  document.querySelector('#score').innerText = `${score.displayScore()}`;
+
+//   alert(`You chosen ${user}. Computer chosen ${computer}.
+// `);
 }
